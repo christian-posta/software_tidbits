@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    What have you learned today about technology?
+{% endblock %}
+
+{% block body %}
+    <form id="tidbitForm" method="post" action="{% url create_tidbit %}">
+        {% csrf_token %}
+        {{ tidbit_form }}
+        {{ url_form }}
+
+        <input id="submitTidbitForm" type="submit" value="Submit"/>
+    </form>
+
+    <h2>What have other people been learning</h2>
+    {% for recent_tidbit in recent_tidbits %}
+        <p>{{ recent_tidbit }}</p>
+        {{ recent_tidbit.created|date }}
+    {% endfor %}
+
+
+{% endblock %}

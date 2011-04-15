@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <title>Tidbits: {% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/print.css" type="text/css" media="print">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css" type="text/css" media="print">
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/ie.css" type="text/css" media="screen, projection">
+    <![endif]-->
+
+    {% block extra_head %}{% endblock %}
+
+</head>
+
+<body class="container">
+<div id="header">
+    <h2>Tidbts - What have you learned today?</h2>
+</div>
+<div id="body">
+    {% block body %}
+    {% endblock %}
+</div>
+<div id="footer">
+    <div class="legal">
+        &copy; Copyright softwaretidbits.com
+        <a href="{% url about %}">About</a>
+        <a href="{% url terms %}">Terms</a>
+        <a href="{% url privacy_policy %}">Privacy Policy</a>
+    </div>
+</div>
+
+<script src="{{ STATIC_URL }}js/jquery-1.5.2.min.js"></script>
+{% block extra_script %}{% endblock %}
+
+</body>
+</html>
